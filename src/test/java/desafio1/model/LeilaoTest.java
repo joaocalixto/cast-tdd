@@ -1,59 +1,61 @@
 package desafio1.model;
 
+import desafio1.CriadorDeLeilao;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LeilaoTest {
 
+    Leilao leilaoPizza = null;
+
+    Usuario usuarioJoao = null;
+    Usuario usuarioMaria = null;
+
+    Lance lanceJoao22 = null;
+    Lance lanceMaria23 = null;
+
+    @Before
+    public void initTestes () {
+        // Test Data Builders
+
+        usuarioJoao  = new Usuario("Joao");
+        usuarioMaria = new Usuario("Maria");
+
+        lanceJoao22  = new Lance(usuarioJoao, 22d);
+        lanceMaria23 = new Lance(usuarioMaria, 23d);
+    }
+
     @Test
     public void naoDeveAdicionarLancesIguaisNoLeilao() {
-        // given
-        //  lances repetido
-        Leilao leilao = new Leilao("Pizza");
-        Usuario usuario = new Usuario("Joao");
-        Lance lance = new Lance(usuario, 22d);
 
-        // when
-        leilao.propoe(lance);
-        leilao.propoe(lance);
-        leilao.propoe(lance);
-        leilao.propoe(lance);
-        leilao.propoe(lance);
+        Leilao leilaoPizza =  new CriadorDeLeilao()
+                .para("Pizza")
+                .lance(usuarioJoao, 22d)
+                .lance(usuarioJoao, 22d)
+                .lance(usuarioJoao, 22d)
+                .lance(usuarioJoao, 22d)
+                .lance(usuarioJoao, 22d)
+                .constroi();
 
-        // then
-        Assert.assertEquals(1, leilao.getLances().size());
-
+        assertEquals(1, leilaoPizza.getLances().size());
     }
 
     @Test
     public void deveAdicionarLancesSomenteDiferentesNoLeilao() {
-        // given
-        //  lances repetido
-        Leilao leilao = new Leilao("Pizza");
-        Usuario usuario = new Usuario("Joao");
-        Lance lance = new Lance(usuario, 22d);
+        leilaoPizza.propoe(lanceJoao22);
+        leilaoPizza.propoe(lanceMaria23);
 
-
-        Usuario usuario1 = new Usuario("Joao da silva");
-        Lance lance1 = new Lance(usuario1, 23d);
-
-        // when
-        leilao.propoe(lance);
-        leilao.propoe(lance1);
-
-
-        // then
         HashSet<Lance> lancesEsperados = new HashSet<Lance>();
-        lancesEsperados.add(lance);
-        lancesEsperados.add(lance1);
+        lancesEsperados.add(lanceJoao22);
+        lancesEsperados.add(lanceMaria23);
 
-        Assert.assertEquals(2, leilao.getLances().size());
+        assertEquals(2, leilaoPizza.getLances().size());
 //        Assert.assertEquals(lancesEsperados, leilao.getLances());
-
-
     }
 }

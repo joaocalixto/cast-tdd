@@ -1,5 +1,6 @@
 package desafio1.service;
 
+import desafio1.CriadorDeLeilao;
 import desafio1.model.Lance;
 import desafio1.model.Leilao;
 import desafio1.model.Usuario;
@@ -23,6 +24,7 @@ public class AvaliadorTest {
         Usuario usuario = new Usuario("Joao");
         Lance lance = new Lance(usuario, 22d);
         leilao.propoe(lance);
+
         Usuario usuario2 = new Usuario("Maria");
         Lance lance2 = new Lance(usuario2, 56d);
         leilao.propoe(lance2);
@@ -48,6 +50,8 @@ public class AvaliadorTest {
         leilao.propoe(lance2);
         Lance lance3 = new Lance(usuario, 40d);
         leilao.propoe(lance3);
+
+
 
         //when
         Double valorMediaRetornado = avaliador.calcularMediaLances(leilao);
