@@ -47,9 +47,5 @@ public class HamcrestTest {
         assertThat(Cat.class, typeCompatibleWith(Animal.class));
     }
 
-    @Test
-    public void testeHerancaJunit(){
-        assertThat(new Person(), Matchers.instanceOf(Animal.class));
-    }
 
 }

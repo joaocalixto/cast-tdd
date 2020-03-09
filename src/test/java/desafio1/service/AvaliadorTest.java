@@ -4,11 +4,32 @@ import desafio1.CriadorDeLeilao;
 import desafio1.model.Lance;
 import desafio1.model.Leilao;
 import desafio1.model.Usuario;
+import org.hamcrest.Matchers;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class AvaliadorTest {
+
+    Leilao leilaoPizza = null;
+
+    Usuario usuarioJoao = null;
+    Usuario usuarioMaria = null;
+
+    Lance lanceJoao22 = null;
+    Lance lanceMaria23 = null;
+
+    @Before
+    public void initTestes () {
+        // Test Data Builders
+
+        usuarioJoao  = new Usuario("Joao");
+        usuarioMaria = new Usuario("Maria");
+
+        lanceJoao22  = new Lance(usuarioJoao, 22d);
+        lanceMaria23 = new Lance(usuarioMaria, 23d);
+    }
 
     // BDD GIVEN - WHEN - THEN
 
@@ -18,20 +39,17 @@ public class AvaliadorTest {
     @Test
     public void deveRetornarMaiorLanceQuandoUmLeilaoComLancesValidosPassado() {
 
-        // given
-        // dado dois usarios com nome de joao e maria
-        // e joao deu um lance de 22 reais e maria deu um lance de 56 reais
-        Usuario usuario = new Usuario("Joao");
-        Lance lance = new Lance(usuario, 22d);
-        leilao.propoe(lance);
 
-        Usuario usuario2 = new Usuario("Maria");
-        Lance lance2 = new Lance(usuario2, 56d);
-        leilao.propoe(lance2);
+        Leilao leilao =  new CriadorDeLeilao()
+                .para("Playstation 4")
+                .lance(usuarioJoao, 22d)
+                .lance(usuarioMaria, 56d)
+                .constroi();
+
 
         // quando o avaliador calcula o maior lance
         Lance lanceRecebido = avaliador.maiorLance(leilao);
-        Lance lanceEsperado = new Lance(usuario2, lance2.getValor());
+        Lance lanceEsperado = new Lance(usuarioMaria, 56d);
 
         // then - o maior lance deve ser 56 reais
         assertEquals(lanceEsperado.getValor(), lanceRecebido.getValor());
@@ -42,16 +60,12 @@ public class AvaliadorTest {
     @Test
     public void deveRetornarAMediaDosValoresDosLancesQuandoCalcularMediaLancesChamado() {
         //given
-        Usuario usuario = new Usuario("Joao");
-        Lance lance = new Lance(usuario, 20d);
-        leilao.propoe(lance);
-        Usuario usuario2 = new Usuario("Maria");
-        Lance lance2 = new Lance(usuario2, 30d);
-        leilao.propoe(lance2);
-        Lance lance3 = new Lance(usuario, 40d);
-        leilao.propoe(lance3);
-
-
+        Leilao leilao =  new CriadorDeLeilao()
+                .para("Playstation 4")
+                .lance(usuarioJoao, 20d)
+                .lance(usuarioMaria, 30d)
+                .lance(usuarioJoao, 40d)
+                .constroi();
 
         //when
         Double valorMediaRetornado = avaliador.calcularMediaLances(leilao);
@@ -73,4 +87,6 @@ public class AvaliadorTest {
         assertEquals(valorMediaEsperado, valorMediaRetornado);
 
     }
+
+
 }

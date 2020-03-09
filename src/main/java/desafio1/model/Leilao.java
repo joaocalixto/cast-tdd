@@ -1,5 +1,6 @@
 package desafio1.model;
 
+import desafio1.excecao.LeilaoSemLancesException;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
@@ -35,6 +36,18 @@ public class Leilao {
             lances.add(lance);
             ultimoLance = lance;
         }
+    }
+
+    public void dobrarUltimoLance() throws LeilaoSemLancesException {
+
+        if(lances.isEmpty()){
+            throw new LeilaoSemLancesException("Lista de leilao sem elementos");
+        }
+
+        lances.remove(ultimoLance);
+        ultimoLance.setValor(2 * ultimoLance.getValor());
+        lances.add(ultimoLance);
+
     }
 
 
