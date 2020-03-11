@@ -1,10 +1,9 @@
-package desafio1.service;
+package br.com.cast.tdd.desafio1.service;
 
-import desafio1.CriadorDeLeilao;
-import desafio1.model.Lance;
-import desafio1.model.Leilao;
-import desafio1.model.Usuario;
-import org.hamcrest.Matchers;
+import br.com.cast.tdd.desafio1.CriadorDeLeilao;
+import br.com.cast.tdd.desafio1.model.Lance;
+import br.com.cast.tdd.desafio1.model.Leilao;
+import br.com.cast.tdd.desafio1.model.Usuario;
 import org.junit.Before;
 import org.junit.Test;
 

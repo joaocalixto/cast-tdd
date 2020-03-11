@@ -1,8 +1,8 @@
-package desafio1;
+package br.com.cast.tdd.desafio1;
 
-import desafio1.model.Lance;
-import desafio1.model.Leilao;
-import desafio1.model.Usuario;
+import br.com.cast.tdd.desafio1.model.Lance;
+import br.com.cast.tdd.desafio1.model.Leilao;
+import br.com.cast.tdd.desafio1.model.Usuario;
 
 public class CriadorDeLeilao {
 

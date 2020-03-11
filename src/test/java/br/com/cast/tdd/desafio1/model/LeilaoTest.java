@@ -1,15 +1,12 @@
-package desafio1.model;
+package br.com.cast.tdd.desafio1.model;
 
-import desafio1.CriadorDeLeilao;
-import desafio1.excecao.LeilaoSemLancesException;
-import org.hamcrest.Matchers;
-import org.junit.Assert;
+import br.com.cast.tdd.desafio1.CriadorDeLeilao;
+import br.com.cast.tdd.desafio1.excecao.LeilaoSemLancesException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 import static org.hamcrest.Matchers.equalTo;

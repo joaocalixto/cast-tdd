@@ -1,4 +1,4 @@
-package hamcrest.bean;
+package br.com.cast.tdd.hamcrest.bean;
 
 import lombok.Getter;
 import lombok.Setter;

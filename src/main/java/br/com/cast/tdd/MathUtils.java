@@ -1,4 +1,4 @@
-package br.com.cast.pic.tdd.exercicios;
+package br.com.cast.tdd;
 
 public class MathUtils {
 

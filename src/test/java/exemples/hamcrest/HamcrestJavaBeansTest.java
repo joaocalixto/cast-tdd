@@ -1,6 +1,6 @@
 package exemples.hamcrest;
 
-import hamcrest.bean.Person;
+import br.com.cast.tdd.hamcrest.bean.Person;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

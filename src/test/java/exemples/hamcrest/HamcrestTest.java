@@ -1,11 +1,8 @@
 package exemples.hamcrest;
 
-import hamcrest.Animal;
-import hamcrest.Cat;
-import hamcrest.Person;
-import org.hamcrest.Matchers;
-import org.hamcrest.core.IsInstanceOf;
-import org.junit.Assert;
+import br.com.cast.tdd.hamcrest.Animal;
+import br.com.cast.tdd.hamcrest.Cat;
+import br.com.cast.tdd.hamcrest.Person;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

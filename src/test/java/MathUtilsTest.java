@@ -1,11 +1,10 @@
+import br.com.cast.tdd.MathUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class MathUtilsTest {
 
-    br.com.cast.pic.tdd.exercicios.MathUtils mathUtils = new br.com.cast.pic.tdd.exercicios.MathUtils();
+    MathUtils mathUtils = new MathUtils();
 
     @Test
     public void deveRetornarAreaCirculoEsperadaQuandoMetodoComputeCircleAreaChamado() {

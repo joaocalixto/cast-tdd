@@ -1,23 +1,41 @@
-package desafio1.model;
+package br.com.cast.tdd.desafio1.model;
 
-import desafio1.excecao.LeilaoSemLancesException;
+import br.com.cast.tdd.desafio1.excecao.LeilaoSemLancesException;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.*;
+import java.util.Date;
 import java.util.HashSet;
 
 @Getter
 @Setter
 @Log
+@Entity
+@NoArgsConstructor
 public class Leilao {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String produto;
+    private Boolean isEncerrado;
     private HashSet<Lance> lances = new HashSet<Lance>();
+
+    @CreationTimestamp
+    @Column(name = "create_date", updatable = false)
+    private Date createDate;
+
+    @UpdateTimestamp
+    @Column(name = "modify_date")
+    private Date modifyDate;
+
+    @Transient
     Lance ultimoLance = null;
-
-
     public Leilao(String produto){
         this.produto = produto;
     }
