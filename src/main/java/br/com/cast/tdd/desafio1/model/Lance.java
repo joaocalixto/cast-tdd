@@ -8,7 +8,9 @@ import javax.persistence.*;
 @Setter
 @EqualsAndHashCode
 @Entity
+@ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class Lance {
 
     @Id
@@ -19,8 +21,4 @@ public class Lance {
     private Usuario usuario;
     private Double valor;
 
-    public Lance(Usuario usuario, Double valor){
-        this.usuario = usuario;
-        this.valor = valor;
-    }
 }

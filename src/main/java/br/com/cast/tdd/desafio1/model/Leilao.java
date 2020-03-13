@@ -1,9 +1,7 @@
 package br.com.cast.tdd.desafio1.model;
 
 import br.com.cast.tdd.desafio1.excecao.LeilaoSemLancesException;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.extern.java.Log;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -16,6 +14,8 @@ import java.util.HashSet;
 @Setter
 @Log
 @Entity
+@EqualsAndHashCode
+@ToString
 @NoArgsConstructor
 public class Leilao {
 

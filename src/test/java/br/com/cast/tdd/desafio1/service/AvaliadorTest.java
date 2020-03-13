@@ -23,11 +23,11 @@ public class AvaliadorTest {
     public void initTestes () {
         // Test Data Builders
 
-        usuarioJoao  = new Usuario("Joao");
-        usuarioMaria = new Usuario("Maria");
+        usuarioJoao  = new Usuario(0l,"Joao");
+        usuarioMaria = new Usuario(1l,"Maria");
 
-        lanceJoao22  = new Lance(usuarioJoao, 22d);
-        lanceMaria23 = new Lance(usuarioMaria, 23d);
+        lanceJoao22  = new Lance(0l,usuarioJoao, 22d);
+        lanceMaria23 = new Lance(1l,usuarioMaria, 23d);
     }
 
     // BDD GIVEN - WHEN - THEN
@@ -48,7 +48,7 @@ public class AvaliadorTest {
 
         // quando o avaliador calcula o maior lance
         Lance lanceRecebido = avaliador.maiorLance(leilao);
-        Lance lanceEsperado = new Lance(usuarioMaria, 56d);
+        Lance lanceEsperado = new Lance(0l, usuarioMaria, 56d);
 
         // then - o maior lance deve ser 56 reais
         assertEquals(lanceEsperado.getValor(), lanceRecebido.getValor());

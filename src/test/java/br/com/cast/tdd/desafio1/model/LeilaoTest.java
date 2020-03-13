@@ -30,11 +30,11 @@ public class LeilaoTest {
     public void initTestes () {
         // Test Data Builders
 
-        usuarioJoao  = new Usuario("Joao");
-        usuarioMaria = new Usuario("Maria");
+        usuarioJoao  = new Usuario(0l, "Joao");
+        usuarioMaria = new Usuario(1l,"Maria");
 
-        lanceJoao22  = new Lance(usuarioJoao, 22d);
-        lanceMaria23 = new Lance(usuarioMaria, 23d);
+        lanceJoao22  = new Lance(0l,usuarioJoao, 22d);
+        lanceMaria23 = new Lance(1l,usuarioMaria, 23d);
     }
 
     @Test
@@ -80,7 +80,7 @@ public class LeilaoTest {
 
         HashSet<Lance> lancesEsperados = new HashSet<Lance>();
 
-        lancesEsperados.add(new Lance(usuarioJoao, 44d));
+        lancesEsperados.add(new Lance(0l, usuarioJoao, 44d));
 
         assertThat(leilaoPizza.getLances(), equalTo(lancesEsperados));
     }
