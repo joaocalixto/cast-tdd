@@ -4,7 +4,9 @@ import br.com.cast.tdd.desafio1.model.Lance;
 import br.com.cast.tdd.desafio1.model.Leilao;
 import br.com.cast.tdd.desafio1.model.Usuario;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CriadorDeLeilao {
 
@@ -33,5 +35,11 @@ public class CriadorDeLeilao {
 
     public Leilao constroi(){
         return leilao;
+    }
+
+    public List<Leilao> retornarLeiloes(){
+        List<Leilao> lista = new ArrayList<>();
+        lista.add(new CriadorDeLeilao().para("Pizza").createDate(new Date(2020, 3,1)).constroi());
+        return lista;
     }
 }

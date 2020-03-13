@@ -26,11 +26,10 @@ public class Leilao {
     private Boolean isEncerrado;
     private HashSet<Lance> lances = new HashSet<Lance>();
 
-    @CreationTimestamp
+
     @Column(name = "create_date", updatable = false)
     private Date createDate;
 
-    @UpdateTimestamp
     @Column(name = "modify_date")
     private Date modifyDate;
 
