@@ -35,7 +35,7 @@ public class LeilaoServiceImpl implements LeilaoService{
                 leilao.setIsEncerrado(true);
                 leiloesEncerrados.add(leilao);
             }
-        }
+        } // filtar 30 dias - , mudar set is encrerro , retornar no collect to lin
 
         return leiloesEncerrados;
 

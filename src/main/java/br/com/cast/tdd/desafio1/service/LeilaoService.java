@@ -10,4 +10,8 @@ public interface LeilaoService {
 
     List<Leilao> findAll();
 
+    default void printTeste(){
+        System.out.println("TEsteeeertheuhrtiuehr ");
+    }
+
 }

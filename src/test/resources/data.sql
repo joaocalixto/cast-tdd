@@ -1,0 +1,1 @@
+INSERT INTO leilao (id, produto) VALUES ('1', 'xbox');
