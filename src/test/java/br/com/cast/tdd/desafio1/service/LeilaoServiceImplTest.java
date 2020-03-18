@@ -71,6 +71,12 @@ public class LeilaoServiceImplTest {
                 .createDate(new Date("01/01/2020"))
                 .constroi();
 
+        Leilao leilaoAntesUmMes2 =  new CriadorDeLeilao()
+                .para("Playstation 5")
+                .lance(usuarioJoao, 20d)
+                .createDate(new Date("03/04/2020"))
+                .constroi();
+
         Leilao leilaoEsperado =  new CriadorDeLeilao()
                 .para("Playstation 4")
                 .lance(usuarioJoao, 20d)
@@ -84,6 +90,7 @@ public class LeilaoServiceImplTest {
         ArrayList<Leilao> leiloesMocks = new ArrayList<>();
 
         leiloesMocks.add(leilaoAntesUmMes);
+        leiloesMocks.add(leilaoAntesUmMes2);
 
         when(leilaoRepository.findAll()).thenReturn(leiloesMocks);
 
